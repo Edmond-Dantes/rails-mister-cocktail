@@ -4,9 +4,15 @@
 
 <ol>
   <% @cocktail.ingredients.each do |ingredient| %>
-  <li>
-    <%= ingredient.name %>
-  </li>
+    <li>
+      <% dose = Dose.where(cocktail: @cocktail, ingredient: ingredient).first %>
+
+      <%= dose.description + ' of ' + ingredient.name %>
+      <%= link_to "Delete", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>
+    </li>
   <% end %>
+  <li>
+    <%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail) %>
+  </li>
 </ol>
 
