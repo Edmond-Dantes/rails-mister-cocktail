@@ -1,27 +1,17 @@
 
-<h1>Cocktails</h1>
 
 
+<div class="banner margin-top-70">
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <% @cocktails.each do |cocktail| %>
-      <!-- insert <div class="card"> -->
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-          <div class="card-category">Popular</div>
-          <div class="card-description">
-            <h2>cocktail.name</h2>
-            <% cocktail.ingredients.each |ingredient| do %>
-              <p>
-              <%= ingredient.name %>
-              </p>
-            <% end %>
-          </div>
-          <%= link_to cocktail.name, cocktail_path(cocktail) %>
-        </div>
+  <div class="banner-content">
+    <h1 style="color: lightgrey;">
+      <span id="cocktail-title" ></span>Cocktails
+    </h1>
 
-      <% end %>
-    </div>
+    <%= render "cocktails/cards" %>
+
   </div>
+
 </div>
+
+

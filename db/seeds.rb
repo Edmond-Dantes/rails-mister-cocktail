@@ -11,6 +11,8 @@ require 'json'
 uri = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 
 
+Ingredient.destroy_all unless Rails.env.production?
+
 ingredients_list = JSON.parse(open(uri).read)
 ingredients_list['drinks'].each do |ingredient|
   Ingredient.create name: ingredient["strIngredient1"]

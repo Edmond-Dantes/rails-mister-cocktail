@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <% @cocktails.each_with_index do |cocktail, index| %>
+      <div class="col-xs-12 col-sm-6 col-lg-4">
+      <!-- insert <div class="card"> -->
+        <%= link_to cocktail_path(cocktail) do %>
+          <div class="card">
+            <!-- <div class="card-category">Popular</div> -->
+            <div class="card-category">
+              <%= cocktail.name %>
+            </div>
+            <div class="card-description">
+                <!-- <ul class="list-unstyled"> -->
+              <span id=<%="dynamic-card#{index}"%> style="font-size: 15px;"></span>
+              <div id=<%="dynamic-card-text#{index}"%> style="font-size: 15px;">
+                <span>
+                  <% cocktail.ingredients.first(3).each do |ingredient| %>
+                      <%= ingredient.name %> <br>
+                  <% end %>
+                  <% if cocktail.ingredients.count > 3 %>
+                    ...and more
+                  <% end %>
+                </span>
+              </div>
+                <!-- </ul> -->
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    <% end %>
+  </div>
+</div>
