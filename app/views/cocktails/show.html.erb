@@ -2,7 +2,7 @@
 
 <h3>Ingredients</h3>
 
-<%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+<%= cl_image_tag(@cocktail.photo, height: 300, width: 400, crop: :fill) unless @cocktail.photo.nil?%>
 
 <ol>
   <% @cocktail.doses.each do |dose| %>

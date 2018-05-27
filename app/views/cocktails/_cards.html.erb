@@ -4,7 +4,9 @@
       <div class="col-xs-12 col-sm-6 col-lg-4">
       <!-- insert <div class="card"> -->
         <%= link_to cocktail_path(cocktail) do %>
-          <div class="card">
+        <% photo_path = cocktail.photo.blank? ? "" : cocktail.photo %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path photo_path, height: 300, width: 400, crop: :fill %>');" >
 
             <!-- <div class="card-category">Popular</div> -->
             <div class="card-category">
